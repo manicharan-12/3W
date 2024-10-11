@@ -107,7 +107,9 @@ export default function SocialMediaTask() {
 
   const fetchSubmissions = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/submissions");
+      const response = await axios.get(
+        "https://threew-up9j.onrender.com/api/submissions"
+      );
       setSubmissions(response.data);
     } catch (error) {
       console.error("Error fetching submissions:", error);
@@ -123,9 +125,13 @@ export default function SocialMediaTask() {
         formData.append("images", file);
       });
 
-      await axios.post("http://localhost:5000/api/submissions", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      await axios.post(
+        "https://threew-up9j.onrender.com/api/submissions",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
 
       reset();
       fetchSubmissions();
@@ -169,7 +175,7 @@ export default function SocialMediaTask() {
               <p>{submission.socialMediaHandle}</p>
               <ImageGrid>
                 {submission.images.map((image, index) => {
-                  const imagePath = `http://localhost:5000/api/uploads/${image}`;
+                  const imagePath = `https://threew-up9j.onrender.com/api/uploads/${image}`;
                   return (
                     <ImageWrapper
                       key={index}

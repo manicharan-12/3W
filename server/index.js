@@ -18,7 +18,7 @@ const upload = multer({ storage: storage });
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://3-w-fawn.vercel.app",
   })
 );
 
